@@ -4,9 +4,10 @@ public class veiculo {
     
     private int Id;
     private int distPecorrida;
-    //private Roda[];
+    private Roda[] rodas;
     private int quantRodas;
     private float combustivel;
+    private float valor;
     private boolean ipva;
 
     // geters e seters
@@ -43,8 +44,6 @@ public class veiculo {
     {
         Random id = new Random();
         Random pneu1 = new Random();
-
-
     }
     public void removerVeiculo(int id)
     {
@@ -98,12 +97,5 @@ public class veiculo {
     {
 
     }
-
-
-    
-    
-
-
-    
 
 }
