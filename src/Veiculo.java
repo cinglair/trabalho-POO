@@ -59,18 +59,20 @@ public class Veiculo {
     
 
     public String toString() {
-        int i;
+        int i = 0;
         boolean c;
-        String s = "Status\n" + "ID: " + this.Id + "\nCombustivel: " + this.combustivel + "\nDistancia percorrida: " + this.distPecorrida + "\nIPVA: " + this.ipva + "\n";
-        
-        s += "Pneus:\n";
-        
-        for(i=0;i<4;i++)
-        {
-            c = rodas[i].getCalibragem();
-            s +=  (i+1) + " - " + c + "\t" ;
-
+        String s = "\nStatus";
+        s +=  "\nID: " + this.Id;
+        s +=  "\nCombustivel: " + this.combustivel + (this.combustivel > 1? " litros" : " litro");
+        s +=  "\nDistancia percorrida: " + this.distPecorrida + (this.distPecorrida > 1? " metro" : " metros");
+        s += "\nIPVA: " + this.ipva;
+        s += "\nPneus:\n";
+        for (Roda roda : rodas) {
+            c = roda.getCalibragem();
+            s += (i+1) + " - " + c + "\t" ;
+            i++;
         }
+       s+= "\n";
 
         return s;
     }
