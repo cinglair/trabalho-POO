@@ -20,63 +20,101 @@ public class Corrida{
    {
     
     int num = 1;
+    String nada;
     while(num != 11){
 
       Scanner entrada = new Scanner(System.in);
       System.out.println("\n -- Menu da corrida -- \n");
-      System.out.println("1- Para incluir veiculo; "); // ta feito
-      System.out.println("2- Para remover veiculo; "); // cinglair
-      System.out.println("3- Para abastecer veiculo;");  // cris
-      System.out.println("4- Para movimentar veiculo;");  // cinglair
-      System.out.println("5- Para movimentar todos os veiculo;");// cris
-      System.out.println("6- Para imprimir todos veiculo;");// cinglair
-      System.out.println("7- Para esvaziar pneu especifico;");//cris
-      System.out.println("8- Para calibrar pneu especifico;"); // cinglair
-      System.out.println("9- Para calibrar todos os pneus;");  // cris
-      System.out.println("10- Imprimir pista;");//cris
-      System.out.println("11- Sair da aplicação;");
-      System.out.println("Digite a opção desejada: ");
+      System.out.println("[1] Para incluir veiculo; "); // ta feito
+      System.out.println("[2] Para remover veiculo; "); // cinglair
+      System.out.println("[3] Para abastecer veiculo;");  // cris
+      System.out.println("[4] Para movimentar veiculo;");  // cinglair
+      System.out.println("[5] Para movimentar todos os veiculo;");// cris
+      System.out.println("[6] Para imprimir todos veiculo;");// cinglair
+      System.out.println("[7] Para esvaziar pneu especifico;");//cris
+      System.out.println("[8] Para calibrar pneu especifico;"); // cinglair
+      System.out.println("[9] Para calibrar todos os pneus;");  // cris
+      System.out.println("[10] Imprimir pista;");//cris
+      System.out.println("[11] Sair da aplicação;");
+      System.out.print("\nDigite a opção desejada: ");
       num = entrada.nextInt();
   
       switch (num) {
           case 1:
             incluirCarro();
+            System.out.print("\nPressione enter para voltar ao menu ");
+            nada = entrada.nextLine();
+            nada = entrada.nextLine();
             break;
           case 2:
             removerCarro();
+            System.out.print("\nPressione enter para voltar ao menu ");
+            nada = entrada.nextLine();
+            nada = entrada.nextLine();
             break;
           case 3:
             abastecer();
+            System.out.print("\nPressione enter para voltar ao menu ");
+            nada = entrada.nextLine();
+            nada = entrada.nextLine();
             break;
           case 4:
             movimentar();
+            System.out.print("\nPressione enter para voltar ao menu ");
+            nada = entrada.nextLine();
+            nada = entrada.nextLine();
             break;
           case 5:
             movimentarTodos();
+            System.out.print("\nPressione enter para voltar ao menu ");
+            nada = entrada.nextLine();
+            nada = entrada.nextLine();
             break;
           case 6:
             imprimirDados();
+            System.out.print("\nPressione enter para voltar ao menu ");
+            nada = entrada.nextLine();
+            nada = entrada.nextLine();
             break;
           case 7:
             esvaziarPneu();
+            System.out.print("\nPressione enter para voltar ao menu ");
+            nada = entrada.nextLine();
+            nada = entrada.nextLine();
             break;
           case 8:
             calibrarPneu();
+            System.out.print("\nPressione enter para voltar ao menu ");
+            nada = entrada.nextLine();
+            nada = entrada.nextLine();
             break;
           case 9:
             calibrarTodos();
+            System.out.print("\nPressione enter para voltar ao menu ");
+            nada = entrada.nextLine();
+            nada = entrada.nextLine();
             break;
           case 10:
             carrosPista();
+            System.out.print("\nPressione enter para voltar ao menu ");
+            nada = entrada.nextLine();
+            nada = entrada.nextLine();
             break;
           case 11:
             System.out.println("Volte Sempre !!!");
+            System.out.print("\nPressione enter para voltar ao menu ");
+            nada = entrada.nextLine();
+            nada = entrada.nextLine();
             break;
           default:
             System.out.println("Número inválido");
+            System.out.print("\nPressione enter para voltar ao menu ");
+            nada = entrada.nextLine();
+            nada = entrada.nextLine();
      }
     }
    }
+
    public static int pedirID() {
     int id;
     System.out.print("\nInforme o id do carro: ");
@@ -84,7 +122,7 @@ public class Corrida{
     id = teclado.nextInt();
     return id;
 }
-  
+
   public static void incluirCarro() { // case 1:
       int i;
       for (i = 0; i < carros.length; i++) {
@@ -126,22 +164,16 @@ public class Corrida{
     public static void movimentar(){ //case 4:
       
       int id = pedirID();
-      Scanner ler = new Scanner(System.in);
-      System.out.printf("Informe a distância a ser movimentada: \n");
-      int movimento = ler.nextInt();
-      carros[id-1].setDistPecorrida(movimento);
+      carros[id-1].movimentarVeiculo();
       System.out.printf("Veículo movimentado com sucesso \n");
 
     }
 
     public static void movimentarTodos(){ //case 5:
       
-      Scanner ler = new Scanner(System.in);
-      System.out.printf("Informe a distância a ser movimentada: \n");
-      int movimento = ler.nextInt();
       for (Veiculo veiculo : carros) {
         if(veiculo != null){
-          veiculo.setDistPecorrida(movimento);
+          veiculo.movimentarVeiculo();
         }
       }
       System.out.printf("Veículos movimentados com sucesso \n");
@@ -156,7 +188,7 @@ public class Corrida{
       }
     }
 
-    public static void esvaziarPneu(){
+    public static void esvaziarPneu(){ //case 7:
       int id = pedirID();
       Scanner ler = new Scanner(System.in);
       int pneu = -1;
@@ -170,7 +202,7 @@ public class Corrida{
       System.out.printf("Pneu esvaziado");
     }
 
-    public static void calibrarPneu(){
+    public static void calibrarPneu(){ //case 8:
       int id = pedirID();
       Scanner ler = new Scanner(System.in);
       
@@ -185,17 +217,16 @@ public class Corrida{
       System.out.printf("Pneu calibrado");
     }
 
-    public static void calibrarTodos(){
+    public static void calibrarTodos(){ //case 9:
       int id = pedirID();
       carros[id-1].calibrarTodosPneu();
       System.out.printf("Pneus calibrados");
     }
 
-    public static void carrosPista(){
+    public static void carrosPista(){ //case 10:
       for (Veiculo veiculo : carros) {
         if(veiculo!=null)
           veiculo.carroNaPista();
       }
-
     }
 }

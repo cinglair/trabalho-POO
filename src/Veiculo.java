@@ -43,6 +43,7 @@ public class Veiculo {
     {
        this.ipva = this.rand.nextInt(100) %2 == 0? true: false;
        int i;
+
        for(i=0;i<4;i++)
        {
             
@@ -56,34 +57,34 @@ public class Veiculo {
         this.combustivel = 3.25f;
     }
 
-    
-
     public String toString() {
         int i = 0;
         boolean c;
-        String s = "\nStatus";
+        String s = "-------------------------------------------------"; 
+        s += "\nStatus";
         s +=  "\nID: " + this.Id;
         s +=  "\nCombustivel: " + this.combustivel + (this.combustivel > 1? " litros" : " litro");
-        s +=  "\nDistancia percorrida: " + this.distPecorrida + (this.distPecorrida > 1? " metro" : " metros");
+        s +=  "\nDistancia percorrida: " + this.distPecorrida + (this.distPecorrida > 1? " metros" : " metro");
         s += "\nIPVA: " + this.ipva;
         s += "\nPneus:\n";
         for (Roda roda : rodas) {
             c = roda.getCalibragem();
-            s += (i+1) + " - " + c + "\t" ;
+            s += (i+1) + " - " + c + "    " ;
             i++;
         }
-       s+= "\n";
+        s += "\n-------------------------------------------------"; 
+        s+= "\n";
 
         return s;
     }
    
-    public void esvaziarPneu(int Pneu)
+    public void esvaziarPneu(int pneu)
     {
-        rodas[Pneu-1].setCalibragem(false);
+        rodas[pneu-1].setCalibragem(false);
     }
-    public void calibrarPneu(int Pneu)
+    public void calibrarPneu(int pneu)
     {
-        rodas[Pneu-1].setCalibragem(true);
+        rodas[pneu-1].setCalibragem(true);
     }
     public void calibrarTodosPneu()
     {
@@ -96,20 +97,18 @@ public class Veiculo {
     public void movimentarVeiculo()
     {
         int i;
-        boolean aux;
-        for(i=0;i<4;i++)
+        boolean aux = true;
+        for(i=0;i<4 && aux == true;i++)
         {
             aux = this.rodas[i].getCalibragem();
-            if(aux == false)
-            {
-                i = 10;
-            }
+
         }
 
         
-        if(this.ipva==true ||this.combustivel>0||i != 10)
+        if(this.ipva==true && this.combustivel>=0.55 && aux)
         {
             this.distPecorrida += 5;
+            this.combustivel -= 0.55;
         }
         
     }
