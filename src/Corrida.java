@@ -20,9 +20,9 @@ public class Corrida{
    {
     
     int num = 1;
-    String nada;
+    
     while(num != 11){
-
+      System.out.print("\033[H\033[2J");
       Scanner entrada = new Scanner(System.in);
       System.out.println("\n -- Menu da corrida -- \n");
       System.out.println("[1] Para incluir veiculo; "); // ta feito
@@ -42,75 +42,52 @@ public class Corrida{
       switch (num) {
           case 1:
             incluirCarro();
-            System.out.print("\nPressione enter para voltar ao menu ");
-            nada = entrada.nextLine();
-            nada = entrada.nextLine();
+            voltar();
+            
             break;
           case 2:
             removerCarro();
-            System.out.print("\nPressione enter para voltar ao menu ");
-            nada = entrada.nextLine();
-            nada = entrada.nextLine();
+            voltar();
             break;
           case 3:
             abastecer();
-            System.out.print("\nPressione enter para voltar ao menu ");
-            nada = entrada.nextLine();
-            nada = entrada.nextLine();
+            voltar();
             break;
           case 4:
             movimentar();
-            System.out.print("\nPressione enter para voltar ao menu ");
-            nada = entrada.nextLine();
-            nada = entrada.nextLine();
+            voltar();
             break;
           case 5:
             movimentarTodos();
-            System.out.print("\nPressione enter para voltar ao menu ");
-            nada = entrada.nextLine();
-            nada = entrada.nextLine();
+            voltar();
             break;
           case 6:
             imprimirDados();
-            System.out.print("\nPressione enter para voltar ao menu ");
-            nada = entrada.nextLine();
-            nada = entrada.nextLine();
+            voltar();
             break;
           case 7:
             esvaziarPneu();
-            System.out.print("\nPressione enter para voltar ao menu ");
-            nada = entrada.nextLine();
-            nada = entrada.nextLine();
+            voltar();
             break;
           case 8:
             calibrarPneu();
-            System.out.print("\nPressione enter para voltar ao menu ");
-            nada = entrada.nextLine();
-            nada = entrada.nextLine();
+            voltar();
             break;
           case 9:
             calibrarTodos();
-            System.out.print("\nPressione enter para voltar ao menu ");
-            nada = entrada.nextLine();
-            nada = entrada.nextLine();
+            voltar();
             break;
           case 10:
             carrosPista();
-            System.out.print("\nPressione enter para voltar ao menu ");
-            nada = entrada.nextLine();
-            nada = entrada.nextLine();
+            voltar();
             break;
           case 11:
             System.out.println("Volte Sempre !!!");
-            System.out.print("\nPressione enter para voltar ao menu ");
-            nada = entrada.nextLine();
-            nada = entrada.nextLine();
+            voltar();
             break;
           default:
             System.out.println("Número inválido");
-            System.out.print("\nPressione enter para voltar ao menu ");
-            nada = entrada.nextLine();
-            nada = entrada.nextLine();
+            voltar();
      }
     }
    }
@@ -121,7 +98,13 @@ public class Corrida{
     Scanner teclado = new Scanner(System.in);
     id = teclado.nextInt();
     return id;
-}
+  }
+  public static void voltar(){
+    Scanner entrada = new Scanner(System.in);
+    System.out.print("\n");
+    System.out.print("Pressione enter para voltar ao menu");
+    entrada.nextLine();
+  }
 
   public static void incluirCarro() { // case 1:
       int i;
