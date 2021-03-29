@@ -22,7 +22,7 @@ public class Veiculo {
         return quantRodas;
     }
     public void setDistPecorrida(int distPecorrida) {
-        this.distPecorrida = distPecorrida;
+        this.distPecorrida += distPecorrida;
     }
     public void setId(int id) {
         Id = id;
@@ -68,7 +68,7 @@ public class Veiculo {
         for(i=0;i<4;i++)
         {
             c = rodas[i].getCalibragem();
-            s +=  i + " - " + c + "\t" ;
+            s +=  (i+1) + " - " + c + "\t" ;
 
         }
 
@@ -77,11 +77,11 @@ public class Veiculo {
    
     public void esvaziarPneu(int Pneu)
     {
-        rodas[Pneu].setCalibragem(false);
+        rodas[Pneu-1].setCalibragem(false);
     }
     public void calibrarPneu(int Pneu)
     {
-        rodas[Pneu].setCalibragem(true);
+        rodas[Pneu-1].setCalibragem(true);
     }
     public void calibrarTodosPneu()
     {
@@ -110,6 +110,20 @@ public class Veiculo {
             this.distPecorrida += 5;
         }
         
+    }
+    public void carroNaPista(){
+        int vezes = this.distPecorrida;
+        String dist = "";
+        while(vezes > 0){
+            dist += "\t";
+            vezes--;
+        }
+
+        System.out.println(dist + "    ___  ");
+        System.out.println(dist + " __/ |_\\_");
+        System.out.println(dist + "|  _     _‘‘-.");
+        System.out.println(dist + "’-(_)---(_)--’");
+        System.out.println(dist + "      "+this.Id+"\n");
     }
 
 }
