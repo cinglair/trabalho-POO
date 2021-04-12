@@ -154,7 +154,7 @@ public class Veiculo {
         return false;
         
     }
-    /*printa carro a carro na pista de corrida*/
+    /*Imprime carro a carro na pista de corrida*/
     public void carroNaPista(){
         int vezes = this.distPecorrida;
         String dist = "";
@@ -171,7 +171,7 @@ public class Veiculo {
         System.out.println(dist + "’-(_)---(_)--’");
         System.out.println(dist + "      "+this.Id+"\n");
     }
-
+    /*Paga IPVA de um veiculo*/ 
     public void pagarIpva(){
         setIpva(true);
     }

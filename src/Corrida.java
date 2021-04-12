@@ -2,31 +2,9 @@ package src;
 import java.util.Scanner;
 
 
-/* ======== teste e revisão =========
-
-  verificar entrada de teclado (batata como combustivel)
-
-  System.out ficando como erro (colocar dentro de um método?)
-
-  identa os códigos
-  comentar as funções
-  * escrever o funcionamento e os parametros das funções como comentario
-  
-      @ nome da função > pneu é qual o pneu do veiculo vai ser esvaziado
-      > carros[id-1].esvaziarPneu(pneu); < 
-
-  Perguntar como jogar o menu para fora deste arquivo
-
-  uso do package (função externa?)
-
-  Perguntar do UML
-
-  COMO ENVIAR?
-
-*/
-
 public class Corrida{ 
    
+  /*array do tipo veiculo, possui todas as caracteristidas da classe veiculo*/
    private static Veiculo[] carros = new Veiculo[20];
   
    public static void main(String[] args) {
@@ -363,7 +341,7 @@ public class Corrida{
     }
     
     /*Paga IPVA de um Veiculo*/
-    public static void pagarIpva(){ // case 11;
+    public static void pagarIpva(){ //case 11:
       
       /*Solicita-se o id do veiculo a ser pago o IPVA, usa o metodo auxiliar pedirID() para verificar se o 
       carro com o respectivo id existe*/
@@ -378,7 +356,7 @@ public class Corrida{
         //informa usuario o sucesso na operação
         System.out.println("IPVA pago");
       }
-      
+      //caso não ache o carro informa ao usuario
       else
         System.out.println("Carro não encontrado");
     }
